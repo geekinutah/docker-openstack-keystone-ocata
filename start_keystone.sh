@@ -7,8 +7,10 @@ cat /openrc.j2 | python -c 'import os;import sys; import jinja2; sys.stdout.writ
 
 echo "ServerName $HOST_ADDRESS" >> /etc/apache2/apache2.conf
 
-groupadd keystone
-useradd keystone -g keystone
+addgroup --system keystone >/dev/null || true
+adduser --quiet --system --home /var/lib/keystone \
+        --no-create-home --ingroup keystone --shell /bin/false \
+        keystone || true
 
 a2ensite keystone
 service apache2 stop
