@@ -7,7 +7,7 @@ COPY fix-requirements.py /usr/bin/fix-requirements.py
 COPY openrc.j2 /openrc.j2
 
 RUN apt-get -q update >/dev/null \
-  && apt-get install -y python python-dev curl build-essential git libssl-dev libmysqlclient-dev apache2\
+  && apt-get install -y python python-dev curl build-essential git libssl-dev libmysqlclient-dev apache2 libapache2-mod-wsgi\
   && git clone --branch stable/ocata https://github.com/openstack/keystone.git \
   && curl https://bootstrap.pypa.io/get-pip.py | python \
   #&& fix-requirements.py --map_file libs.vers --requirements_file keystone/requirements.txt --inplace \
