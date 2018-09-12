@@ -7,5 +7,8 @@ cat /openrc.j2 | python -c 'import os;import sys; import jinja2; sys.stdout.writ
 
 echo "ServerName $HOST_ADDRESS" >> /etc/apache2/apache2.conf
 
+groupadd keystone
+useradd keystone -G keystone
+
 a2ensite keystone
 apache2ctl -D FOREGROUND
