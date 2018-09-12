@@ -13,9 +13,8 @@ RUN apt-get -q update >/dev/null \
   #&& fix-requirements.py --map_file libs.vers --requirements_file keystone/requirements.txt --inplace \
   #&& pip install keystonemiddleware==4.4.1 \
   && pip install keystone/ \
-  && pip install uwsgi/ \
-  #&& pip install mysqlclient==1.3.4 \
-  #&& pip install PyMySQL==0.6.7 \
+  && pip install mysqlclient \
+  && pip install PyMySQL \
   && pip install Jinja \
   && mkdir /etc/keystone \
   # Cleanup
