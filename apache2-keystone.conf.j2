@@ -2,7 +2,7 @@ Listen 5000
 Listen 35357
 
 <VirtualHost *:5000>
-    WSGIDaemonProcess keystone-public processes=5 threads=1 user=keystone group=keystone display-name=%{GROUP}
+    WSGIDaemonProcess keystone-public processes=1 threads=1 user=keystone group=keystone display-name=%{GROUP}
     WSGIProcessGroup keystone-public
     WSGIScriptAlias / /usr/local/bin/keystone-wsgi-public
     WSGIApplicationGroup %{GLOBAL}
@@ -25,7 +25,7 @@ Listen 35357
 </VirtualHost>
 
 <VirtualHost *:35357>
-    WSGIDaemonProcess keystone-admin processes=5 threads=1 user=keystone group=keystone display-name=%{GROUP}
+    WSGIDaemonProcess keystone-admin processes=1 threads=1 user=keystone group=keystone display-name=%{GROUP}
     WSGIProcessGroup keystone-admin
     WSGIScriptAlias / /usr/local/bin/keystone-wsgi-admin
     WSGIApplicationGroup %{GLOBAL}
